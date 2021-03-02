@@ -46,7 +46,10 @@ namespace CRUDAppBackend.UserData
 
         public User UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            var existingUser = GetUser(user.Id);
+            existingUser.Name = user.Name;
+            return existingUser;
+
         }
     }
 }

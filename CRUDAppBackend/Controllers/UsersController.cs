@@ -55,6 +55,20 @@ namespace CRUDAppBackend.Controllers
             }
             return NotFound($"User with id: {id} not found!");
         }
+        [HttpPatch]
+        [Route("api/[controller]/{id}")]
+        public IActionResult UpdateUser(int id, User user)
+        {
+            var usertmp = _userData.GetUser(id);
+            if (usertmp != null)
+            {
+                user.Id = usertmp.Id;
+
+                _userData.UpdateUser(user);
+                return Ok($"Updated user {usertmp.Name}");
+            }
+            return NotFound($"User with id: {id} not found!");
+        }
 
     }
 }
