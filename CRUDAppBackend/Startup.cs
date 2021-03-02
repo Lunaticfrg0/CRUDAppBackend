@@ -1,3 +1,4 @@
+using CRUDAppBackend.UserData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,7 @@ namespace CRUDAppBackend
 
             });
 
-            services.AddControllersWithViews();
+            services.AddSingleton<IUserData, MockUserData>();
 
             services.AddControllers();
         }
