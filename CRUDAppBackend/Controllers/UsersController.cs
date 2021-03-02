@@ -43,6 +43,18 @@ namespace CRUDAppBackend.Controllers
                 );
             
         }
+        [HttpDelete]
+        [Route("api/[controller]/{id}")]
+        public IActionResult DeleteUser(int id)
+        {
+            var usertmp = _userData.GetUser(id);
+            if(usertmp != null)
+            {
+                _userData.DeleteUser(usertmp);
+                return Ok($"Delete user {usertmp.Name}");
+            }
+            return NotFound($"User with id: {id} not found!");
+        }
 
     }
 }

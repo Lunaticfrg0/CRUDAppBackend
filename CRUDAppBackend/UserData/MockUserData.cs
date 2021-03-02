@@ -31,7 +31,7 @@ namespace CRUDAppBackend.UserData
 
         public void DeleteUser(User user)
         {
-            throw new NotImplementedException();
+            users.Remove(user);
         }
 
         public User GetUser(int id)
