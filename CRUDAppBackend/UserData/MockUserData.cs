@@ -23,7 +23,10 @@ namespace CRUDAppBackend.UserData
         };
         public User AddUser(User user)
         {
-            throw new NotImplementedException();
+            Random rnd = new Random();
+            user.Id = rnd.Next(3, 100000);
+            users.Add(user);
+            return user;
         }
 
         public void DeleteUser(User user)

@@ -1,4 +1,5 @@
-﻿using CRUDAppBackend.UserData;
+﻿using CRUDAppBackend.Models;
+using CRUDAppBackend.UserData;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,6 +30,18 @@ namespace CRUDAppBackend.Controllers
                return Ok(usertmp);
             }
             return NotFound($"User with id: {id} not found!");
+        }
+        [HttpPost]
+        [Route("api/[controller]")]
+        public IActionResult CreateUser(User user)
+        {
+            _userData.AddUser(user);
+            return Created(HttpContext.Request.Scheme + "://" 
+                + HttpContext.Request.Host 
+                + HttpContext.Request.Path + "/" 
+                + user.Id, user
+                );
+            
         }
 
     }
