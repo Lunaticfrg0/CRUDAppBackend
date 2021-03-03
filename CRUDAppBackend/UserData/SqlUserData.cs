@@ -14,7 +14,9 @@ namespace CRUDAppBackend.UserData
         }
         public User AddUser(User user)
         {
-            throw new NotImplementedException();
+            _userContext.Users.Add(user);
+            _userContext.SaveChanges();
+            return user;
         }
 
         public void DeleteUser(User user)
