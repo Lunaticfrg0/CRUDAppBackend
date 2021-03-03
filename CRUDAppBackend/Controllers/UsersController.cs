@@ -63,7 +63,6 @@ namespace CRUDAppBackend.Controllers
             if (usertmp != null)
             {
                 user.Id = usertmp.Id;
-
                 _userData.UpdateUser(user);
                 return Ok($"Updated user {usertmp.Name}");
             }
