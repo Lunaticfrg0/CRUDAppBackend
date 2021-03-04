@@ -50,8 +50,7 @@ namespace CRUDAppBackend.Controllers
             var usertmp = _userData.GetUser(id);
             if(usertmp != null)
             {
-                _userData.DeleteUser(usertmp);
-                return Ok($"Delete user {usertmp.Name}");
+                return Ok(_userData.DeleteUser(usertmp));
             }
             return NotFound($"User with id: {id} not found!");
         }
@@ -64,7 +63,7 @@ namespace CRUDAppBackend.Controllers
             {
                 user.Id = usertmp.Id;
                 _userData.UpdateUser(user);
-                return Ok($"Updated user {usertmp.Name}");
+                return Ok(usertmp);
             }
             return NotFound($"User with id: {id} not found!");
         }

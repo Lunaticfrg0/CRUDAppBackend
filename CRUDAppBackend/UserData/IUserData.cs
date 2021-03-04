@@ -14,7 +14,7 @@ namespace CRUDAppBackend.UserData
 
         User AddUser(User user);
 
-        void DeleteUser(User user);
+        User DeleteUser(User user);
 
         User UpdateUser(User user);
             

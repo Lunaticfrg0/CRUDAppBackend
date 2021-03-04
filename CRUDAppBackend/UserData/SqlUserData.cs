@@ -19,10 +19,11 @@ namespace CRUDAppBackend.UserData
             return user;
         }
 
-        public void DeleteUser(User user)
+        public User DeleteUser(User user)
         {
             _userContext.Users.Remove(user);
             _userContext.SaveChanges();
+            return user;
 
         }
 
